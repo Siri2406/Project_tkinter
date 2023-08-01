@@ -1,0 +1,32 @@
+import tkinter as tk
+from tkinter import *
+
+
+def draw_circle(canvas, x, y, radius):
+    canvas.create_oval(x - radius, y - radius, x + radius, y + radius, fill="black",outline="black", width=2)
+
+def draw_circle_on_canvas():
+    canvas_width = 400
+    canvas_height = 400
+
+    # Create a new Canvas widget
+    canvas = tk.Canvas(root, width=canvas_width, height=canvas_height)
+    canvas.pack()
+
+    circle_x = canvas_width // 2  # x-coordinate of the circle's center
+    circle_y = canvas_height // 2  # y-coordinate of the circle's center
+    circle_radius = 100
+
+    # Draw the circle on the canvas
+    draw_circle(canvas, circle_x, circle_y, circle_radius)
+
+# Create the main tkinter window
+root = tk.Tk()
+root.title("Circle using Tkinter")
+root.geometry('500x500')
+# Create a button to draw the circle
+draw_button = tk.Button(root, text="Draw Circle", command=draw_circle_on_canvas)
+draw_button.pack()
+
+# Start the tkinter event loop
+root.mainloop()
